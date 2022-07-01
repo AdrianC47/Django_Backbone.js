@@ -11,5 +11,12 @@
     <div>
         Numero de personas: {{no_personas}}
     </div>
+<div>
+    <ul>
+            {%for persona in personas%}
+                <li>Persona {{persona.id}}: {{persona.nombre}} {{persona.apellido}} {{persona.email}}</li>
+            {% endfor %}
+    </ul>
+</div>
 </body>
 </html>
