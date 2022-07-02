@@ -34,7 +34,8 @@ def nuevaPersona(request):
 def editarPersona(request, id):
     persona = get_object_or_404(Persona, pk=id)
     if request.method == 'POST':
-        formaPersona = PersonaForm(request.POST, instance=persona) ##para el actualizar tambien se manda como parametro la instancia
+        formaPersona = PersonaForm(request.POST,
+                                   instance=persona)  ##para el actualizar tambien se manda como parametro la instancia
         if formaPersona.is_valid():
             formaPersona.save()
             return redirect('inicio')
@@ -43,3 +44,11 @@ def editarPersona(request, id):
         formaPersona = PersonaForm(instance=persona)
 
         return render(request, 'personas/editar.html', {'formaPersona': formaPersona})
+
+
+def eliminarPersona(request, id):
+    #se obtiene el id y por medio del mismo busco al objeto
+    persona = get_object_or_404(Persona, pk=id)
+    if persona:
+        persona.delete()
+    return redirect('inicio')
