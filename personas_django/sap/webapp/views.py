@@ -9,7 +9,8 @@ def bienvenido(request):
     #mensajes = {'msg1':'Valor mensaje 1', 'msg2':'Valor mensaje 2'}
     #return HttpResponse('Hola mundo desde Django')
     no_personas_var = Persona.objects.count();
-    personas=Persona.objects.all();
+    # personas=Persona.objects.all();
+    personas = Persona.objects.order_by('id')#si se quiere que ordene de manera descendente se pone el -id
     return render(request, 'bienvenido.html', {'no_personas':no_personas_var, 'personas':personas})
 
 
