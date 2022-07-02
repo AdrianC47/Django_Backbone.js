@@ -2,6 +2,7 @@ from django.forms import modelform_factory
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
+from personas.forms import PersonaForm
 from personas.models import Persona
 
 
@@ -11,7 +12,7 @@ def detallePersona(request, id):
     return render(request, 'personas/detalle.html', {'persona': persona})
 
 
-PersonaForm = modelform_factory(Persona, exclude=[])  ##clase generada a partir de Persona, no se excluye ningun atributo
+#PersonaForm = modelform_factory(Persona, exclude=[])  ##clase generada a partir de Persona, no se excluye ningun atributo
 
 
 def nuevaPersona(request):
