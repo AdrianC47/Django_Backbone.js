@@ -1,10 +1,17 @@
 from django.forms import modelform_factory
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-
+import json
 # Create your views here.
 from personas.forms import PersonaForm
 from personas.models import Persona
 
+
+#
+# def detallePersona(request, id):
+#     # persona = Persona.objects.get(pk=id)
+#     persona = get_object_or_404(Persona, pk=id)  # esto se lo hace en caso que no encuentre un id
+#     return render(request, 'personas/detalle.html', {'persona': persona})
 
 def detallePersona(request, id):
     # persona = Persona.objects.get(pk=id)
@@ -47,8 +54,21 @@ def editarPersona(request, id):
 
 
 def eliminarPersona(request, id):
-    #se obtiene el id y por medio del mismo busco al objeto
+    # se obtiene el id y por medio del mismo busco al objeto
     persona = get_object_or_404(Persona, pk=id)
     if persona:
         persona.delete()
     return redirect('inicio')
+
+
+def listarPersona(request):
+    # c = list(Persona.objects.filter(id=id).values())
+    c = list(Persona.objects.values())
+
+    if len(c) > 0:
+        com = c[0]
+        datos = {'mensaje': "Exitoso", 'Persona': c}
+    else:
+        datos = {'message': "Persona no encontrada.."}
+
+    return JsonResponse(datos)

@@ -1,53 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Bienvenido</title>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-</head>
-<body>
-<h1 style="text-align:center">Sistema de Administracion de Personas (SAP)</h1>
-<hr>
-<div>
-    Numero de personas: {{no_personas}}
-</div>
-<div>
-    <a href="Nueva_Persona">Agregar Persona</a>
-</div>
-<div>
-
-    <table border="1" style="margin: 0 auto;" class="table table-bordered">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      Sistema de Administracion de Personas (SAP)
+    </h1>
+    <hr />
+    <div>Numero de personas: {{no_personas}}</div>
+    <div>
+      <a href="Nueva_Persona">Agregar Persona</a>
+    </div>
+    <div>
+      <table border="1" style="margin: 0 auto" class="table table-bordered">
         <thead class="table-dark">
-        <tr>
+          <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre y Apellido</th>
             <th scope="col">Email</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
-        {%for persona in personas%}
-        <tr>
+          {%for persona in personas%}
+          <tr>
             <td>{{persona.id}}</td>
             <td>{{persona.nombre}} {{persona.apellido}}</td>
             <td>{{persona.email}}</td>
             <td><a href="detalle_persona/{{persona.id}}">Ver detalle</a></td>
             <td><a href="Editar_Persona/{{persona.id}}">Editar</a></td>
             <td><a href="Eliminar_Persona/{{persona.id}}">Eliminar</a></td>
-        </tr>
-        {% endfor %}
+          </tr>
+          {% endfor %}
         </tbody>
-    </table>
+      </table>
+    </div>
+    <script src="../static/js/vendor/hola.js"></script>
+    <script src="../static/js/vendor/jquery-3.6.0.js"></script>
+    <script src="../static/js/vendor/bootstrap.min.js"></script>
+    <script src="../static/js/vendor/underscore-umd.js"></script>
+    <script src="../static/js/vendor/backbone-min.js"></script>
+    <script src="../static/js/main.js"></script>
 
-</div>
-</body>
+
+  </body>
 </html>

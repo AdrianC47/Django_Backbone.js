@@ -1,4 +1,5 @@
 from django.db import models
+from tastypie.authorization import Authorization
 
 # Create your models here.
 #Primero se crea la clase direccion ya que no depende de Persona para existir en este caso

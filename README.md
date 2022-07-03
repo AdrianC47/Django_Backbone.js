@@ -7,3 +7,4 @@ IDE Pycharm
 PostgreSQL
 python -m pip install django
 python.exe -m pip install psycopg2
+pip install django-tastypie

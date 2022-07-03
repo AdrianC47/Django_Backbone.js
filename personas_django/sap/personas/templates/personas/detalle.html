@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Detalle de la Persona </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Detalle de la Persona</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            crossorigin="anonymous"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"
+    ></script>
 </head>
 <body>
-<h1 style="text-align:center" >Detalle Persona</h1>
-<div>Id Persona: {{persona.id}}</div>
-<div>Nombre Persona: {{persona.nombre}}</div>
-<div>Apellido Persona: {{persona.apellido}}</div>
-<div>Email Persona: {{persona.email}}</div>
+<h1 style="text-align: center">Detalle Persona</h1>
+<!--<div>Id Persona: {{persona.id}}</div>-->
+<!--<div>Nombre Persona: {{persona.nombre}}</div>-->
+<!--<div>Apellido Persona: {{persona.apellido}}</div>-->
+<!--<div>Email Persona: {{persona.email}}</div>-->
+<table border="1" style="margin: 0 auto" class="table table-bordered">
+    <thead class="table-dark">
+    <th scope="col">Id</th>
+    <th scope="col">Nombre y Apellido</th>
+    <th scope="col">Email</th>
+    <th scope="col">Domicilio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{persona.id}}</td>
+        <td>{{persona.nombre}} {{persona.apellido}}</td>
+        <td>{{persona.email}}</td>
+        <td>{{persona.domicilio}}</td>
+    </tr>
+    </tbody>
+</table>
+<h2>Objeto en Json</h2>
+
 <a href="{% url 'inicio' %}">Regresar a Inicio</a>
+
+</script>
+<script src="../static/js/vendor/hola.js"></script>
+<script src="../static/js/vendor/jquery-3.6.0.js"></script>
+<script src="../static/js/vendor/bootstrap.min.js"></script>
+<script src="../static/js/vendor/underscore-umd.js"></script>
+<script src="../static/js/vendor/backbone-min.js"></script>
+<script src="../../static/js/main.js"></script>
 </body>
 </html>
