@@ -22,14 +22,12 @@ from webapp.views import bienvenido
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', bienvenido, name='inicio'),
-    path('detalle_persona/<int:id>', detallePersona),
+    path('Listas/<int:id>', listarPersona),
     path('Nueva_Persona', nuevaPersona),
     path('Editar_Persona/<int:id>', editarPersona),
     path('Eliminar_Persona/<int:id>', eliminarPersona),
-    path('Listar_Persona', listarPersona),
-
-
-
+    #path('Listar_Persona/<int:id>', detallePersona),
+    path('detalle_persona/<int:id>', detallePersona),
 
     # path('bienvenido/',bienvenido)
     # path('despedida.html', despedirse),

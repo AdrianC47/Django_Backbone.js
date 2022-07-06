@@ -7,12 +7,6 @@ from personas.forms import PersonaForm
 from personas.models import Persona
 
 
-#
-# def detallePersona(request, id):
-#     # persona = Persona.objects.get(pk=id)
-#     persona = get_object_or_404(Persona, pk=id)  # esto se lo hace en caso que no encuentre un id
-#     return render(request, 'personas/detalle.html', {'persona': persona})
-
 def detallePersona(request, id):
     # persona = Persona.objects.get(pk=id)
     persona = get_object_or_404(Persona, pk=id)  # esto se lo hace en caso que no encuentre un id
@@ -61,14 +55,22 @@ def eliminarPersona(request, id):
     return redirect('inicio')
 
 
-def listarPersona(request):
-    # c = list(Persona.objects.filter(id=id).values())
-    c = list(Persona.objects.values())
-
-    if len(c) > 0:
-        com = c[0]
-        datos = {'mensaje': "Exitoso", 'Persona': c}
+def listarPersona(request, id):
+    if(id>0):
+        c = list(Persona.objects.filter(id=id).values())
+        if len(c) > 0:
+            com = c[0]
+            datos = {'mensaje': "Exitoso", 'Persona': com}
+        else:
+            datos = {'message': "Persona no encontrada.."}
+        return JsonResponse(datos)
     else:
-        datos = {'message': "Persona no encontrada.."}
-
-    return JsonResponse(datos)
+        c = list(Persona.objects.values())  
+        if len(c)>0:    
+            datos = {'mensaje': "Exitoso", 'Persona': c}
+        else:
+           datos = {'message': "Persona no encontrada.."}
+        return JsonResponse(datos)     
+    #objetoJson=JsonResponse(datos)
+    #return render(request, 'personas/detalle.html', {'persona': objetoJson})
+    

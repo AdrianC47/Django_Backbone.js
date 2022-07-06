@@ -1,8 +1,9 @@
 from django.db import models
 from tastypie.authorization import Authorization
 
+
 # Create your models here.
-#Primero se crea la clase direccion ya que no depende de Persona para existir en este caso
+# Primero se crea la clase direccion ya que no depende de Persona para existir en este caso
 
 class Domicilio(models.Model):
     calle = models.CharField(max_length=255)
@@ -12,15 +13,17 @@ class Domicilio(models.Model):
     def __str__(self):
         return f'Domicilio {self.id}: {self.calle} {self.no_calle} {self.pais}'
 
+
 class Persona(models.Model):
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    domicilio= models.ForeignKey(Domicilio, on_delete=models.SET_NULL, null=True)
-    #El segundo parametro nos dice que va a suceder si se elimina un domicilio
-    #que este asociado a la persona
+    telefono = models.CharField(max_length=255)
+    edad= models.IntegerField()
+    domicilio = models.ForeignKey(Domicilio, on_delete=models.SET_NULL, null=True)
 
-
+    # El segundo parametro nos dice que va a suceder si se elimina un domicilio
+    # que este asociado a la persona
 
     def __str__(self):
-        return f'Persona {self.id}: {self.nombre} {self.apellido} {self.email}'
+        return f'Persona {self.id}: {self.nombre} {self.apellido} {self.email} {self.telefono} {self.edad}'
